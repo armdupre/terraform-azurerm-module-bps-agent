@@ -1,4 +1,5 @@
 locals {
+	AdminPassword = random_string.RandomString
 	AdminUserName = var.AdminUserName
 	DisablePasswordAuthentication = var.DisablePasswordAuthentication
 	DnsLabel = "${local.Preamble}-dns"
@@ -22,7 +23,6 @@ locals {
 	ResourceGroupName = var.ResourceGroupName
 	SharedImageGalleryName = var.SharedImageGalleryName
 	SharedImageGalleryResourceGroupName = var.SharedImageGalleryResourceGroupName
-	SshKeyName = var.SshKeyName
 	Tag = var.Tag
 	UserEmailTag = var.UserEmailTag
 	UserLoginTag = var.UserLoginTag

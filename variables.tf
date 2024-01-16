@@ -90,11 +90,6 @@ variable "SharedImageGalleryResourceGroupName" {
 	type = string
 }
 
-variable "SshKeyName" {
-	description = "Id associated with SSH key pair used for authentication"
-	type = string
-}
-
 variable "Tag" {
 	default = "bps"
 	description = "App ID tag of application using the deployment"
