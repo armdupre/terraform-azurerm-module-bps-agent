@@ -16,6 +16,7 @@ locals {
 	Eth2IpAddresses = var.Eth2IpAddresses
 	Eth2SubnetId = var.Eth2SubnetId
 	ImageSku = var.ImageSku
+	ImageVersion = var.ImageVersion
 	InstanceId = var.InstanceId
 	InstanceName = "${local.Preamble}-instance"
 	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}-${local.InstanceId}"
