@@ -15,7 +15,7 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 		caching = "ReadWrite"
 		storage_account_type = "Standard_LRS"
 	}
-	computer_name = local.InstanceName
+	computer_name = replace(local.InstanceName, "_", "-")
 	admin_username = local.AdminUserName
 	admin_password = local.AdminPassword
 	disable_password_authentication = local.DisablePasswordAuthentication
@@ -56,8 +56,8 @@ resource "azurerm_network_interface" "Eth0" {
 		private_ip_address_version = "IPv4"
 	}
 	dns_servers = []
-	enable_accelerated_networking = local.EnableAcceleratedNetworking
-	enable_ip_forwarding = local.EnableIpForwarding
+	accelerated_networking_enabled = local.EnableAcceleratedNetworking
+	ip_forwarding_enabled = local.EnableIpForwarding
 	depends_on = [
 		azurerm_public_ip.Eth0PublicIpAddress
 	]
@@ -154,10 +154,10 @@ resource "azurerm_network_interface" "Eth1" {
 		private_ip_address_version = "IPv4"
 	}
 	dns_servers = []
-	enable_accelerated_networking = local.EnableAcceleratedNetworking
-	enable_ip_forwarding = local.EnableIpForwarding
+	accelerated_networking_enabled = local.EnableAcceleratedNetworking
+	ip_forwarding_enabled = local.EnableIpForwarding
 }
- 
+
 resource "azurerm_network_interface" "Eth2" {
 	name = local.Eth2Name
 	location = local.ResourceGroupLocation
@@ -249,8 +249,8 @@ resource "azurerm_network_interface" "Eth2" {
 		private_ip_address_version = "IPv4"
 	}
 	dns_servers = []
-	enable_accelerated_networking = local.EnableAcceleratedNetworking
-	enable_ip_forwarding = local.EnableIpForwarding
+	accelerated_networking_enabled = local.EnableAcceleratedNetworking
+	ip_forwarding_enabled = local.EnableIpForwarding
 }
 
 resource "azurerm_public_ip" "Eth0PublicIpAddress" {
