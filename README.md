@@ -14,7 +14,5 @@ module "Agent" {
 	Eth1SubnetId = module.Vnet.Private1Subnet.id
 	Eth2SubnetId = module.Vnet.Private2Subnet.id
 	ResourceGroupName = azurerm_resource_group.ResourceGroup.name
-	SharedImageGalleryName = local.SharedImageGalleryName
-	SharedImageGalleryResourceGroupName = local.SharedImageGalleryResourceGroupName
 }
 ```

@@ -56,13 +56,13 @@ variable "Eth2SubnetId" {
 }
 
 variable "ImageSku" {
-	default = "keysight-breakingpoint-virtual-blade"
+	default = "keysight-breakingpoint-ve-virtual-blade-11-20"
 	description = "An instance of an offer, such as a major release of a distribution."
 	type = string
 }
 
 variable "ImageVersion" {
-	default = "10.0.1"
+	default = "11.20.18"
 	description = "The version number of an image SKU."
 	type = string
 }
@@ -70,6 +70,18 @@ variable "ImageVersion" {
 variable "InstanceId" {
 	default = "agent"
 	description = "Id of the instance of this module that ensures uniqueness"
+	type = string
+}
+
+variable "MarketplaceImageOfferId" {
+	default = "keysight-breakingpoint-virtual-edition"
+	description = "The name of a group of related images created by a publisher."
+	type = string
+}
+
+variable "MarketplaceImagePublisherId" {
+	default = "keysight-technologies-ixvm"
+	description = "The organization that created the image."
 	type = string
 }
 
@@ -81,16 +93,6 @@ variable "ResourceGroupLocation" {
 
 variable "ResourceGroupName" {
 	description = "Id of container that holds related resources that you want to manage together"
-	type = string
-}
-
-variable "SharedImageGalleryName" {
-	description = "Id of gallery that contains the application software image used by the deployment"
-	type = string
-}
-
-variable "SharedImageGalleryResourceGroupName" {
-	description = "Id of container that contains the application software image gallery"
 	type = string
 }
 
@@ -127,7 +129,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "10-00-p1"
+	default = "11-20"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
