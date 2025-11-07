@@ -5,7 +5,7 @@ variable "AdminUserName" {
 }
 
 variable "DisablePasswordAuthentication" {
-	default = false
+	default = true
 	description = "Disable SSH password auth in favor of key-based auth"
 	type = bool
 }
@@ -93,6 +93,11 @@ variable "ResourceGroupLocation" {
 
 variable "ResourceGroupName" {
 	description = "Id of container that holds related resources that you want to manage together"
+	type = string
+}
+
+variable "SshKeyName" {
+	description = "Id associated with SSH key pair used for authentication"
 	type = string
 }
 

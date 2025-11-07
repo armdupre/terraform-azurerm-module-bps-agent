@@ -1,5 +1,4 @@
 locals {
-	AdminPassword = random_string.RandomString.result
 	AdminUserName = var.AdminUserName
 	DisablePasswordAuthentication = var.DisablePasswordAuthentication
 	DnsLabel = replace(lower("${local.Preamble}-dns"), "_", "-")
@@ -26,10 +25,18 @@ locals {
 	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}-${local.InstanceId}"
 	ResourceGroupLocation = var.ResourceGroupLocation
 	ResourceGroupName = var.ResourceGroupName
+	SshKeyName = var.SshKeyName
 	Tag = var.Tag
 	UserEmailTag = var.UserEmailTag
 	UserLoginTag = var.UserLoginTag
 	UserProjectTag = var.UserProjectTag
 	Version = var.Version
 	VmSize = var.VmSize
+}
+
+locals {
+	init_cli = <<-EOF
+#!/bin/bash -xe
+cat /etc/bps_ova
+    EOF
 }
