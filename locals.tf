@@ -32,11 +32,5 @@ locals {
 	UserProjectTag = var.UserProjectTag
 	Version = var.Version
 	VmSize = var.VmSize
-}
-
-locals {
-	init_cli = <<-EOF
-#!/bin/bash -xe
-cat /etc/bps_ova
-    EOF
+	init_cli = var.init_cli
 }

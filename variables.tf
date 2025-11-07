@@ -152,3 +152,11 @@ VmSize must be one of the following sizes:
 		EOF
 	}
 }
+
+variable "init_cli" {
+	default = <<-EOF
+#!/bin/bash -xe
+cat /etc/bps_ova
+    EOF
+	type = string
+}
